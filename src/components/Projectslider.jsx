@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -74,6 +75,24 @@ const projects = [
 ];
 
 export default function ProjectCarousel() {
+
+  const touchStartX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const distance = touchStartX.current - touchEndX;
+
+    if (distance > 50) {
+      next();
+    } else if (distance < -50) {
+      prev();
+    }
+  };
+
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState(null);
 
@@ -91,7 +110,11 @@ export default function ProjectCarousel() {
     <section id="projects" className="carousel-wrapper">
       <h2 className="carousel-title">Projects</h2>
 
-      <div className="carousel-container">
+      <div
+        className="carousel-container"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
 
         <button className="nav-btn left" onClick={prev}>
           ‹
@@ -101,7 +124,6 @@ export default function ProjectCarousel() {
 
           let offset = i - index;
 
-          // infinite loop correction
           if (offset < -projects.length / 2) {
             offset += projects.length;
           }
@@ -119,9 +141,9 @@ export default function ProjectCarousel() {
           return (
             <motion.div
               key={i}
-              className={`carousel-card ${
-                offset === 0 ? "active-card" : ""
-              }`}
+              className={`carousel-card ${offset === 0 ? "active-card" : ""
+                }`}
+
               animate={{
                 x,
                 scale,
@@ -132,7 +154,11 @@ export default function ProjectCarousel() {
                 duration: 0.7,
                 ease: "easeInOut",
               }}
-              style={{ zIndex }}
+
+              style={{
+                zIndex,
+                touchAction: "pan-y",
+              }}
             >
               <img
                 src={project.img}
@@ -147,6 +173,12 @@ export default function ProjectCarousel() {
               >
                 View Project
               </button>
+
+              {offset === 0 && (
+                <div className="swipe-indicator">
+                  <span>← Swipe →</span>
+                </div>
+              )}
             </motion.div>
           );
         })}
@@ -154,6 +186,10 @@ export default function ProjectCarousel() {
         <button className="nav-btn right" onClick={next}>
           ›
         </button>
+
+      </div>
+      <div className="mobile-swipe-hint">
+        👈 Swipe Projects 👉
       </div>
 
       {/* MODAL */}
