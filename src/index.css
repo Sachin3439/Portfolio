@@ -1489,7 +1489,7 @@ overflow:hidden;
 
   /*projects----------------------------*/
 .carousel-card{
-    width:250px;
+    width:240px;
     height:260px; ;
      padding:15px;
   }
@@ -1514,14 +1514,39 @@ overflow:hidden;
   margin-bottom:30px;
  }
 .modal-desc p{
-  font-weight: 110;font-size: 15px;
+  font-weight: 110;
+  font-size: 15px;
   margin-bottom:20px;
 }
 
 .view-btn{
   margin-top: 8px;
   padding:12px 20px;
+}
 
+.active-card{
+  border:1px solid #14b8a6;
+
+  box-shadow:
+    0 0 10px #14b8a6,
+    0 0 20px rgba(20,184,166,0.5);
+
+  animation:activeGlow 2.5s infinite alternate;
+}
+
+@keyframes activeGlow{
+  from{
+    box-shadow:
+      0 0 5px #14b8a6,
+      0 0 10px rgba(20,184,166,0.4);
+  }
+
+  to{
+    box-shadow:
+      0 0 20px #14b8a6,
+      0 0 25px rgba(20,184,166,0.7);
+  }
+}
 
 
 /*footer*/
@@ -1532,7 +1557,6 @@ overflow:hidden;
   }
 
 }
-
 
 
 
