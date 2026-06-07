@@ -134,7 +134,7 @@ export default function Hero() {
           scale,
         }}
           ref={imageRef}
-          src="/hero.png"
+          src="/her.png"
           alt="hero"
           className="hero-image"
         />
