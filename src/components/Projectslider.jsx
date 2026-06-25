@@ -163,6 +163,8 @@ export default function ProjectCarousel() {
               <img
                 src={project.img}
                 alt={project.title}
+                loading="lazy"
+                decoding="async"
               />
 
               <h3>{project.title}</h3>
