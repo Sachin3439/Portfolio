@@ -1,4 +1,7 @@
-import { motion } from "framer-motion";
+import '../components/css/footer.css';
+import { FaRocket } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 import {
   FaPhone,
   FaEnvelope,
@@ -8,10 +11,52 @@ import {
 } from "react-icons/fa";
 
 export default function Footer() {
+  const [showRocket, setShowRocket] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setShowRocket(window.scrollY > 300);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
   return (
     <footer className="minimal-footer" id="footer">
+       
+       
+       <AnimatePresence>
+    {showRocket && (
+      <motion.button
+        className="rocket-btn"
+        onClick={scrollToTop}
+        initial={{ opacity: 0, y: 80 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 80 }}
+        whileHover={{
+          scale: 1.15,
+          rotate: -10,
+        }}
+        whileTap={{
+          scale: 0.9,
+        }}
+      >
+        <FaRocket />
+      </motion.button>
+    )}
+  </AnimatePresence>
+   
+     
       <div className="footer-glow-line"></div>
-
+    
       <div className="footer-inner">
 
         <h2 className="footer-name">Nabajyoti Rout</h2>
@@ -74,6 +119,8 @@ export default function Footer() {
         </p>
 
       </div>
+    
     </footer>
+    
   );
 }

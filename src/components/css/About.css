@@ -1,0 +1,408 @@
+/* ===============================
+   PROFESSIONAL ABOUT SECTION (UPGRADED)
+================================= */
+
+.about-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 10%;
+  perspective: 1200px; /* enables 3D tilt */
+}
+
+/* Floating animation */
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.about-card {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  padding: 30px;
+  border-radius: 20px;
+
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
+
+  opacity: 0;
+  transform: translateY(60px) rotateX(0deg) rotateY(0deg);
+  transition: all 0.6s ease;
+
+  animation: floatCard 6s ease-in-out infinite;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll reveal */
+.about-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== HOVER 3D TILT ===== */
+.about-card:hover {
+  transform: translateY(-8px) rotateX(5deg) rotateY(-5deg);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(20, 184, 166, 0.4);
+}
+
+/* ===== Animated Glow Border ===== */
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  );
+  background-size: 300% 300%;
+  z-index: -1;
+  animation: borderGlow 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== Shine Sweep Animation ===== */
+.about-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.7s;
+}
+
+.about-card:hover::after {
+  left: 130%;
+}
+
+/* Right Side */
+
+.about-right h3 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #14b8a6, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.edu-block {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(246, 226, 15, 0.1);
+  transition: 0.3s ease;
+}
+
+.edu-block:hover {
+  transform: translateX(5px);
+  color: #14b8a6;
+}
+
+/* ===============================
+      Premium Neon Corners
+================================= */
+
+.corner {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  pointer-events: none;
+
+  border-color: #00ffff;
+
+  filter: drop-shadow(0 0 8px #00ffff) drop-shadow(0 0 18px #00ffff)
+    drop-shadow(0 0 35px #3b82f6);
+
+  animation: cornerPulse 3s ease-in-out infinite;
+}
+
+/* TOP LEFT */
+
+.top-left {
+  top: 15px;
+  left: 15px;
+
+  border-top: 4px solid;
+  border-left: 4px solid;
+
+  border-radius: 14px 0 0 0;
+}
+
+/* TOP RIGHT */
+
+.top-right {
+  top: 15px;
+  right: 15px;
+
+  border-top: 4px solid;
+  border-right: 4px solid;
+
+  border-radius: 0 14px 0 0;
+
+  animation-delay: 0.7s;
+}
+
+/* BOTTOM LEFT */
+
+.bottom-left {
+  bottom: 15px;
+  left: 15px;
+
+  border-bottom: 4px solid;
+  border-left: 4px solid;
+
+  border-radius: 0 0 0 14px;
+
+  animation-delay: 1.4s;
+}
+
+/* BOTTOM RIGHT */
+
+.bottom-right {
+  bottom: 15px;
+  right: 15px;
+
+  border-bottom: 4px solid;
+  border-right: 4px solid;
+
+  border-radius: 0 0 14px 0;
+
+  animation-delay: 2.1s;
+}
+
+@keyframes cornerPulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px #00ffff) drop-shadow(0 0 10px #3b82f6);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 20px #00ffff) drop-shadow(0 0 45px #3b82f6)
+      drop-shadow(0 0 70px #8b5cf6);
+  }
+
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px #00ffff) drop-shadow(0 0 10px #3b82f6);
+  }
+}
+
+/* ===============================
+        MOBILE VIEW
+================================= */
+
+@media (max-width: 768px) {
+  .about-wrapper {
+    min-height: auto;
+
+    padding: 90px 20px 40px;
+  }
+
+  /* Card */
+
+  .about-card {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    border-radius: 22px;
+
+    width: 100%;
+
+    animation: mobileFloat 5s ease-in-out infinite;
+  }
+
+  /* Remove 3D hover on phones */
+
+  .about-card:hover {
+    transform: none;
+  }
+
+  /* Heading */
+
+  .about-right h3 {
+    font-size: 28px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+  }
+
+  /* Education Card */
+
+  .edu-block {
+    padding: 18px;
+
+    margin-bottom: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.35s;
+
+    animation: slideCard 0.8s ease both;
+  }
+
+  /* Delay */
+
+  .edu-block:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .edu-block:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  .edu-block:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  .edu-block:nth-child(5) {
+    animation-delay: 0.8s;
+  }
+
+  /* Tap */
+
+  .edu-block:active {
+    transform: scale(0.97);
+  }
+
+  /* Hover */
+
+  .edu-block:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 25px rgba(20, 184, 166, 0.2);
+  }
+
+  /* Text */
+
+  .edu-block span {
+    font-size: 18px;
+
+    font-weight: 700;
+  }
+
+  .edu-block p {
+    font-size: 16px;
+
+    margin-top: 8px;
+  }
+
+  .edu-block small {
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #bbb;
+  }
+
+  /* Corners */
+
+  .corner {
+    width: 35px;
+
+    height: 35px;
+  }
+
+  /* Shine */
+
+  .about-card::after {
+    animation: shine 6s linear infinite;
+  }
+
+  /* Disable tilt */
+
+  .about-card::before {
+    opacity: 0.45;
+  }
+}
+
+@keyframes mobileFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideCard {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -120%;
+  }
+
+  50% {
+    left: 120%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}

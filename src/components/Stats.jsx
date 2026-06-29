@@ -1,3 +1,4 @@
+import '../components/css/stats.css';
 import {
   motion,
   useMotionValue,
@@ -75,19 +76,34 @@ export default function Stats() {
           <motion.div
             key={i}
             className="stat-card"
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            onViewportEnter={(el) => {
-              el.target.classList.add("mobile-glow");
+            initial={{
+              opacity: 0,
+              y: 80,
+              scale: 0.8,
+              rotate: -8,
             }}
-            transition={{ duration: 0.8, delay: i * 0.2 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              rotate: 0,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 12,
+              delay: i * 0.15,
+            }}
             viewport={{ once: true }}
             whileHover={{
               scale: 1.05,
-              rotateX: 5,
-              rotateY: -5
+              rotateX: 8,
+              rotateY: -8,
+              y: -10,
             }}
           >
+            <div className="shine"></div>
+            <div className="glow"></div>
             <div className="stat-icon">{stat.icon}</div>
             <Counter end={stat.value} />
             <p>{stat.label}</p>

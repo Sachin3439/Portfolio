@@ -1,0 +1,191 @@
+/* ===============================
+   HERO LEFT LAYOUT
+================================= */
+
+.hero-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 0%;
+  z-index: 10;
+}
+
+.hero-card {
+  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 50px;
+  border-radius: 20px;
+  max-width: 500px;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 1s ease;
+}
+
+.hero-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-greeting {
+  font-size: 18px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.hero-title {
+  font-size: 50px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #14b8a6, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 10px 0;
+}
+
+.hero-role {
+  font-size: 20px;
+  margin-top: 10px;
+  opacity: 0.9;
+  transition: opacity 0.4s ease;
+}
+
+/* Buttons */
+
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.primary-btn {
+   background: transparent;
+  border: 2px solid #14b8a6;
+  color: #14b8a6;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.primary-btn:hover {
+  background: #14b8a6;
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px #14b8a6;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid #14b8a6;
+  color: #14b8a6;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.secondary-btn:hover {
+  background: #14b8a6;
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px #14b8a6;
+}
+.png{
+  position: absolute;
+  top: 80px;
+  right:-5%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+
+
+
+
+/* Split reveal animation */
+.split-reveal {
+  animation: reveal 1.2s ease forwards;
+  transform: translateY(40px);
+  opacity: 0;
+}
+
+@keyframes reveal {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Gradient animated name */
+.gradient-animate {
+  background: linear-gradient(90deg, #14b8a6, #3b82f6, #14b8a6);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Neon glow effect */
+.neon-text {
+  text-shadow:
+    0 0 5px #14b8a6,
+    0 0 10px #14b8a6,
+    0 0 20px #3b82f6,
+    0 0 40px #3b82f6;
+}
+
+/* 3D depth effect */
+.depth-text {
+  text-shadow:
+    2px 2px 0px rgba(0,0,0,0.6),
+    4px 4px 10px rgba(0,0,0,0.4);
+}
+
+
+@media (max-width: 768px) {
+  /* hhero----*/
+
+  .hero-container{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:120px;
+  padding-left:0;
+}
+
+  .hero-card {
+    width: 90%;
+     max-width:320px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+     background: rgba(255, 255, 255, 0.1);
+  }
+  .hero-card:hover{
+    transform: translateY(-8px);
+  box-shadow: 0 0 20px cyan;
+  }
+ 
+  .png{
+    display: none;
+  }
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .skill {
+    width: 90%;
+  }
+
+  .gradient-text {
+    font-size: 2.2rem;
+  }
+
+}
