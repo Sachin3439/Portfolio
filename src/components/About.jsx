@@ -1,4 +1,4 @@
-import '../components/css/About.css';
+import './css/About.css';
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 

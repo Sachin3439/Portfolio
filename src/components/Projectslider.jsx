@@ -1,4 +1,4 @@
-import '../components/css/Projectslider.css';
+import './css/Projectslider.css';
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 

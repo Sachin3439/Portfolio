@@ -1,4 +1,4 @@
-import "../components/css/Wave.css";
+import "./css/Wave.css";
 
 import { useEffect, useState } from "react";
 

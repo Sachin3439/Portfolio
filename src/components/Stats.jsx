@@ -1,4 +1,4 @@
-import '../components/css/stats.css';
+import './css/stats.css';
 import {
   motion,
   useMotionValue,

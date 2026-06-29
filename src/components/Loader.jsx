@@ -1,4 +1,4 @@
-import '../components/css/Loader.css';
+import './css/Loader.css';
 export default function Loader() {
   return (
     <div className="loader-wrapper">

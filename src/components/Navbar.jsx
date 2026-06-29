@@ -1,4 +1,4 @@
-import '../components/css/Navbar.css';
+import './css/Navbar.css';
 import { useState, useRef, useEffect } from "react";
 import { FaDownload, FaCheck } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
