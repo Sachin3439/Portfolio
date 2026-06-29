@@ -75,6 +75,7 @@ const projects = [
 ];
 
 export default function ProjectCarousel() {
+  const isMobile = window.innerWidth <= 768;
 
   const touchStartX = useRef(0);
 
@@ -138,6 +139,8 @@ export default function ProjectCarousel() {
           let rotateY = offset * -15;
           let zIndex = projects.length - Math.abs(offset);
 
+          if (Math.abs(offset) > 2) return null;
+
           return (
             <motion.div
               key={i}
@@ -148,10 +151,10 @@ export default function ProjectCarousel() {
                 x,
                 scale,
                 opacity,
-                rotateY,
+                rotateY: isMobile ? 0 : rotateY,
               }}
               transition={{
-                duration: 0.7,
+                duration: isMobile ? 0.35 : 0.7,
                 ease: "easeInOut",
               }}
 
@@ -165,6 +168,7 @@ export default function ProjectCarousel() {
                 alt={project.title}
                 loading="lazy"
                 decoding="async"
+                draggable={false}
               />
 
               <h3>{project.title}</h3>
