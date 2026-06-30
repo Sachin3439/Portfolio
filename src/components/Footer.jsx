@@ -13,51 +13,58 @@ import {
 export default function Footer() {
   const [showRocket, setShowRocket] = useState(false);
 
-useEffect(() => {
-  const handleScroll = () => {
-    setShowRocket(window.scrollY > 300);
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowRocket(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
-
-  window.addEventListener("scroll", handleScroll);
-
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
   return (
     <footer className="minimal-footer" id="footer">
-       
-       
-       <AnimatePresence>
-    {showRocket && (
-      <motion.button
-        className="rocket-btn"
-        onClick={scrollToTop}
-        initial={{ opacity: 0, y: 80 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 80 }}
-        whileHover={{
-          scale: 1.15,
-          rotate: -10,
-        }}
-        whileTap={{
-          scale: 0.9,
-        }}
-      >
-        <FaRocket />
-      </motion.button>
-    )}
-  </AnimatePresence>
-   
-     
+
+
+      <AnimatePresence>
+        {showRocket && (
+          <motion.button
+            className="rocket-btn"
+            onClick={scrollToTop}
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 80 }}
+            whileHover={{
+              scale: 1.15,
+              rotate: -10,
+            }}
+            whileTap={{
+              scale: 0.9,
+            }}
+          >
+            <FaRocket />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
+
       <div className="footer-glow-line"></div>
-    
+
+
+
       <div className="footer-inner">
+        
+        <div className="footer-shooting">
+          <span></span>
+          <span></span>
+        </div>
 
         <h2 className="footer-name">Nabajyoti Rout</h2>
 
@@ -119,8 +126,8 @@ const scrollToTop = () => {
         </p>
 
       </div>
-    
+
     </footer>
-    
+
   );
 }

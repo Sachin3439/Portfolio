@@ -13,6 +13,7 @@ import {
 } from "react-icons/fa";
 
 export default function Navbar() {
+  const [flow, setFlow] = useState(false);
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [downloadStatus, setDownloadStatus] = useState("idle");
@@ -54,10 +55,28 @@ export default function Navbar() {
   }
 };
 
+const timerRef = useRef(null);
+
+const handleLinkClick = () => {
+    setOpen(false);
+
+    // Stop any previous animation
+    clearTimeout(timerRef.current);
+
+    setFlow(false);
+
+    setTimeout(() => {
+        setFlow(true);
+
+        timerRef.current = setTimeout(() => {
+            setFlow(false);
+        }, 3000);
+    }, 20);
+};
   return (
     <>
 
-      <nav className="navbar" ref={navRef}>
+      <nav className={`navbar ${flow ? "flow" : ""}`} ref={navRef}>
         {/* Double Click Logo */}
        
         <div className="logo-wrapper">
@@ -78,12 +97,12 @@ export default function Navbar() {
         </div>
 
         <div className={`links ${open ? "active" : ""}`}>
-          <a href="#home" onClick={() => { setOpen(false); }}>Home</a>
-          <a href="#about" onClick={() => { setOpen(false);}}>About</a>
-          <a href="#stats" onClick={() => { setOpen(false); }}>Stats</a>
-          <a href="#skills" onClick={() => { setOpen(false); }}>Skills</a>
-          <a href="#projects" onClick={() => { setOpen(false);}}>Projects</a>
-        </div>
+  <a href="#home" onClick={handleLinkClick}>Home</a>
+  <a href="#about" onClick={handleLinkClick}>About</a>
+  <a href="#stats" onClick={handleLinkClick}>Stats</a>
+  <a href="#skills" onClick={handleLinkClick}>Skills</a>
+  <a href="#projects" onClick={handleLinkClick}>Projects</a>
+</div>
       </nav>
 
       {/* PROFILE MODAL */}
