@@ -91,7 +91,7 @@ export default function ThreeScene() {
   return (
     <Canvas
       camera={{ position: [0, 0, 8] }}
-  dpr={[1, 2]}
+ dpr={[1, 1.5]}
   style={{
     position: "fixed",
     inset: 0,
