@@ -2,7 +2,7 @@ import './css/Navbar.css';
 import { useState, useRef, useEffect } from "react";
 import { FaDownload, FaCheck } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import Wave from "../components/Wave";
+
 import {
   FaPhone,
   FaEnvelope,
@@ -30,9 +30,7 @@ export default function Navbar() {
     age = cy - y;
   }
 
-  const replayWave = () => {
-    setWaveKey((prev) => prev + 1);
-  };
+  
 
 
   const handleResumeDownload = () => {
@@ -61,7 +59,7 @@ export default function Navbar() {
 
       <nav className="navbar" ref={navRef}>
         {/* Double Click Logo */}
-        <Wave key={waveKey} />
+       
         <div className="logo-wrapper">
           <img
             id="logopng"
@@ -80,11 +78,11 @@ export default function Navbar() {
         </div>
 
         <div className={`links ${open ? "active" : ""}`}>
-          <a href="#home" onClick={() => { setOpen(false); replayWave(); }}>Home</a>
-          <a href="#about" onClick={() => { setOpen(false); replayWave(); }}>About</a>
-          <a href="#stats" onClick={() => { setOpen(false); replayWave(); }}>Stats</a>
-          <a href="#skills" onClick={() => { setOpen(false); replayWave(); }}>Skills</a>
-          <a href="#projects" onClick={() => { setOpen(false); replayWave(); }}>Projects</a>
+          <a href="#home" onClick={() => { setOpen(false); }}>Home</a>
+          <a href="#about" onClick={() => { setOpen(false);}}>About</a>
+          <a href="#stats" onClick={() => { setOpen(false); }}>Stats</a>
+          <a href="#skills" onClick={() => { setOpen(false); }}>Skills</a>
+          <a href="#projects" onClick={() => { setOpen(false);}}>Projects</a>
         </div>
       </nav>
 
