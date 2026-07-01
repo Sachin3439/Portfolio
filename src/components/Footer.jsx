@@ -30,7 +30,7 @@ export default function Footer() {
     });
   };
   return (
-    <footer className="minimal-footer" id="footer">
+    <footer className="minimal-footer" id="footer" >
 
 
       <AnimatePresence>

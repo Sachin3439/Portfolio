@@ -145,7 +145,7 @@ export default function Hero() {
             y,
             scale,
           }}
-          src="/her.png"
+          src="/her.webp"
           alt="Nabajyoti Rout"
           className="hero-image"
           loading="eager"

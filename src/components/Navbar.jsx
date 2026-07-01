@@ -82,7 +82,7 @@ const handleLinkClick = () => {
         <div className="logo-wrapper">
           <img
             id="logopng"
-            src="/nr-logo.png"
+            src="/nr-logo.webp"
             alt="logo"
             onClick={() => setProfileOpen(true)}
             style={{ cursor: "pointer" }}
@@ -133,7 +133,7 @@ const handleLinkClick = () => {
               />
 
               <img
-                src="/sachin.jpeg"
+                src="/sachin.webp"
                 alt="profile"
                 className="profile-img"
                 onDoubleClick={() => setImageOpen(true)}

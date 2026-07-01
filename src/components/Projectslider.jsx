@@ -6,76 +6,76 @@ const projects = [
   {
     title: "Spotify Clone",
     desc: "A modern Spotify clone with music player UI and responsive design.",
-    img: "/spotify.png",
+    img: "/spotify.webp",
     github: "https://github.com/yourrepo1",
   },
 
   {
     title: "Fitlife",
     desc: "A full-stack fitness dashboard where users can calculate BMI, track diet plans, and monitor progress with charts.",
-    img: "/fitlife.png",
+    img: "/fitlife.webp",
     github: "https://github.com/Sachin3439/fitlife1",
   },
 
   {
     title: "Kanban Task Manager",
     desc: "Drag and drop task management system inspired by Trello.",
-    img: "/kanban.png",
+    img: "/kanban.webp",
     github: "https://github.com/yourrepo3",
   },
 
   {
     title: "AI Chatbot",
     desc: "An AI-powered chatbot built using React frontend and Node.js backend with modern animations.",
-    img: "/ai.png",
+    img: "/ai.webp",
     github: "https://github.com/Sachin3439/aichatbot",
   },
 
   {
     title: "EV Charging Station",
     desc: "Real-time EV charging station management system with live monitoring.",
-    img: "/ev.png",
+    img: "/ev.webp",
     github: "https://github.com/Sachin3439/evstation",
   },
 
   {
     title: "Real-Time User Search",
     desc: "Dynamic user explorer with real-time filtering using Vanilla JavaScript.",
-    img: "/user.png",
+    img: "/user.webp",
     github: "https://github.com/Sachin3439/user-search",
   },
 
   {
     title: "Image Editor",
     desc: "Interactive image editor built with React for editing and downloading images.",
-    img: "/imageeditor.png",
+    img: "/imageeditor.webp",
     github: "https://github.com/sachin3439/image-editor",
   },
 
   {
     title: "Birthday Wish Card",
     desc: "Personalized birthday card with music, animations, and photos.",
-    img: "/birthday.png",
+    img: "/birthday.webp",
     github: "https://wishbirtday.vercel.app/",
   },
 
   {
     title: "HabitFlow",
     desc: "Habit tracking web app for daily consistency and progress monitoring.",
-    img: "/habitflow.png",
+    img: "/habitflow.webp",
     github: "https://github.com/sachin3439/habitflow",
   },
 
   {
     title: "Uber Clone",
     desc: "Full-stack Uber clone with ride tracking and authentication.",
-    img: "/uber.png",
+    img: "/uber.webp",
     github: "https://github.com/sachin3439/uberclone",
   },
   {
   title: "CodeSync - Real-Time Code Editor",
   desc: "A modern collaborative code editor built with the MERN stack, Socket.IO, and Monaco Editor. Features real-time code synchronization, authentication, online user presence, syntax highlighting, and a responsive UI.",
-  img: "/code-editor.png",
+  img: "/code-editor.webp",
   github: "https://github.com/yourusername/code-editor",
 },
 ];
