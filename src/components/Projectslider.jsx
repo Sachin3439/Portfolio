@@ -72,6 +72,12 @@ const projects = [
     img: "/uber.png",
     github: "https://github.com/sachin3439/uberclone",
   },
+  {
+  title: "CodeSync - Real-Time Code Editor",
+  desc: "A modern collaborative code editor built with the MERN stack, Socket.IO, and Monaco Editor. Features real-time code synchronization, authentication, online user presence, syntax highlighting, and a responsive UI.",
+  img: "/code-editor.png",
+  github: "https://github.com/yourusername/code-editor",
+},
 ];
 
 export default function ProjectCarousel() {

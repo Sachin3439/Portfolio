@@ -56,40 +56,82 @@
   display: flex;
   gap: 20px;
 }
+.primary-btn,
+.secondary-btn{
 
-.primary-btn {
-   background: transparent;
-  border: 2px solid #14b8a6;
-  color: #14b8a6;
-  padding: 12px 28px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s ease;
+    position:relative;
+
+    padding:14px 34px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#080b13;
+
+    color:white;
+
+    cursor:pointer;
+
+    overflow:hidden;
 }
 
-.primary-btn:hover {
-  background: #14b8a6;
-  color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px #14b8a6;
+.primary-btn::before,
+.secondary-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:50px;
+
+    background:conic-gradient(
+        cyan,
+        blue,
+        purple,
+        cyan
+    );
+
+    animation:spin 4s linear infinite;
+
+    z-index:-2;
 }
 
-.secondary-btn {
-  background: transparent;
-  border: 2px solid #14b8a6;
-  color: #14b8a6;
-  padding: 12px 28px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s ease;
+.primary-btn::after,
+.secondary-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    background:#080b13;
+
+    border-radius:48px;
+
+    z-index:-1;
 }
 
-.secondary-btn:hover {
-  background: #14b8a6;
-  color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px #14b8a6;
+.primary-btn:hover,
+.secondary-btn:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 0 30px cyan;
 }
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
 .png{
   position: absolute;
   top: 80px;
@@ -166,7 +208,16 @@
      max-width:320px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-     background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+        135deg,
+        rgba(0,255,255,.08),
+        rgba(15,20,40,.75),
+        rgba(138,43,226,.08)
+    );
+     box-shadow:
+    0 8px 20px rgba(0,0,0,.35),
+    0 0 8px rgba(0,255,255,.06),
+    inset 0 0 6px rgba(255,255,255,.02);
   }
   .hero-card:hover{
     transform: translateY(-8px);
@@ -187,5 +238,138 @@
   .gradient-text {
     font-size: 2.2rem;
   }
+
+  
+
+}
+
+/* ===========================
+   Mobile Buttons
+=========================== */
+
+@media (max-width:768px){
+
+.hero-buttons{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:60px;
+    margin-top:40px;
+}
+
+.primary-btn,
+.secondary-btn{
+    position:relative;
+    overflow:hidden;
+
+    width:100%;
+    max-width:300px;
+
+    padding:15px 20px;
+
+    border:none;
+    border-radius:50px;
+
+    color:#fff;
+    font-size:12px;
+    font-weight:600;
+
+    background:linear-gradient(
+        135deg,
+        #2d5c6569,
+        #0f172a,
+        #7b61ff96
+    );
+
+    background-size:300%;
+
+    animation:
+        gradientMove 6s linear infinite;
+
+    box-shadow:
+    0 3px 8px rgba(0,217,255,.06);
+
+    transition:.25s;
+}
+.primary-btn::before,
+.secondary-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:45%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.15),
+        transparent
+    );
+
+    animation:shine 4.5s infinite;
+}
+/* Shine Animation */
+
+.primary-btn::before,
+.secondary-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:50%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+       rgba(255,255,255,.12),
+        transparent
+    );
+
+    animation:shine 3s infinite;
+}
+
+/* Touch Effect */
+
+.primary-btn:active,
+.secondary-btn:active{
+
+    transform:scale(.95);
+
+    box-shadow:
+    0 0 10px rgba(0,217,255,.25),
+    0 0 18px rgba(0,217,255,.12);
+}
+
+/* Animations */
+
+@keyframes gradientMove{
+    from{
+        background-position:0%;
+    }
+    to{
+        background-position:300%;
+    }
+}
+
+@keyframes shine{
+
+    0%{
+        left:-120%;
+    }
+
+    30%{
+        left:140%;
+    }
+
+    100%{
+        left:140%;
+    }
+}
 
 }

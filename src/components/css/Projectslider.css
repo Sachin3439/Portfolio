@@ -520,4 +520,198 @@
     transform: none;
     letter-spacing: normal;
   }
+
+
+}
+
+
+/* ===============================
+   PREMIUM MOBILE MODAL
+================================*/
+
+@media (max-width:768px){
+
+.modal-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:22px;
+    text-align:center;
+}
+
+/* IMAGE */
+
+.modal-image{
+    position:relative;
+    display:inline-block;
+    margin-top:20px;
+}
+
+.modal-image::before{
+    content:"";
+    position:absolute;
+    inset:-3px;
+    border-radius:18px;
+
+    background:linear-gradient(
+        90deg,
+        cyan,
+        #4f46e5,
+        #7c3aed,
+        cyan
+    );
+
+    background-size:300%;
+    animation:borderMove 6s linear infinite;
+    z-index:-2;
+}
+
+.modal-image::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-150%;
+
+    width:40%;
+    height:100%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+    );
+
+    animation:shineMove 5s infinite;
+}
+
+.modal-image img{
+
+    width:100%;
+    max-width:280px;
+
+    border-radius:16px;
+
+    display:block;
+
+    border:2px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.35),
+        0 0 10px rgba(0,217,255,.08);
+
+    animation:floatingImage 5s ease-in-out infinite;
+
+    transition:.4s;
+}
+
+/* TITLE */
+
+.modal-desc h2{
+
+    font-size:24px;
+    margin-bottom:12px;
+
+    background:linear-gradient(
+        90deg,
+        cyan,
+        white,
+        cyan
+    );
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+    animation:titleGradient 5s linear infinite;
+}
+
+/* DESCRIPTION */
+
+.modal-desc p{
+
+    color:#d8d8d8;
+    font-size:15px;
+    line-height:1.8;
+}
+
+/* GITHUB BUTTON */
+
+.github-btn{
+
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    width:100%;
+    max-width:220px;
+
+    padding:13px 20px;
+
+    border-radius:40px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #00d9ff,
+        #2563eb
+    );
+
+    box-shadow:
+        0 5px 12px rgba(0,217,255,.18);
+
+    transition:.3s;
+}
+
+.github-btn:active{
+
+    transform:scale(.95);
+
+    box-shadow:
+        0 0 15px rgba(0,217,255,.3);
+}
+
+/* ===============================
+   ANIMATIONS
+================================*/
+
+
+
+@keyframes shineMove{
+
+    0%{
+        left:-0%;
+    }
+
+    100%{
+        left:60%;
+    }
+}
+
+@keyframes borderMove{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:300%;
+    }
+}
+
+@keyframes titleGradient{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:300%;
+    }
+}
+
 }

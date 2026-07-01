@@ -15,7 +15,7 @@
     overflow: hidden;
     padding: 20px 20px;
     text-align: center;
-
+    border-radius: 50%;
     background:
         radial-gradient(circle at 50% 0%, rgba(30,60,120,.10) 0%, transparent 35%),
         radial-gradient(circle at 20% 25%, rgba(0,120,255,.06) 0%, transparent 30%),
@@ -34,7 +34,7 @@
     top:0;
     left:0;
     width:100%;
-    height:3px;
+    height:4px;
 
     background:linear-gradient(
         90deg,
@@ -44,7 +44,7 @@
         #00d9ff,
         transparent
     );
-
+    
     background-size:300% auto;
 
     animation:glowMove 6s linear infinite;
@@ -338,29 +338,35 @@
 @media (max-width:480px){
 
     .minimal-footer{
-        padding:30px 15px;
+        padding:15px 12px;
+        border-radius: 45%;
     }
+    .footer-contact{
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+}
 
     .footer-name{
-        font-size:1.3rem;
+        font-size:1.1rem;
     }
 
     .footer-contact a{
-        font-size:14px;
+        font-size:10px;
     }
 
     .footer-social{
-        gap:12px;
+        gap:10px;
     }
 
     .footer-social a{
-        width:42px;
-        height:42px;
+        width:35px;
+        height:35px;
         font-size:18px;
     }
 
     .footer-copy{
-        font-size:.78rem;
+        font-size:.70rem;
     }
 
     .rocket-btn{
@@ -372,8 +378,8 @@
     }
 
     .minimal-footer::before{
-        width:250px;
-        height:250px;
+        width:200px;
+        height:200px;
     }
 
 }
