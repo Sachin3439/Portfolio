@@ -233,7 +233,7 @@ const handleLinkClick = () => {
                   onClick={() => setImageOpen(false)}
                 >
                   <motion.img
-                    src="/sachin.jpeg"
+                    src="/sachin.webp"
                     className="fullscreen-image"
                     onClick={(e) => e.stopPropagation()}
                   />

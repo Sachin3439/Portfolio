@@ -59,7 +59,7 @@ const radius = viewport.width < 6 ? 2.3 : 3.3;
 ========================= */
 
 function NRLogo() {
-  const texture = useLoader(THREE.TextureLoader, "/nr-logo.png");
+  const texture = useLoader(THREE.TextureLoader, "/nr-logo.webp");
   const meshRef = useRef();
   const { camera, viewport } = useThree();
 
